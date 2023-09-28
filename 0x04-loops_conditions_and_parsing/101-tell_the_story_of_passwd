@@ -3,10 +3,5 @@
 
 # Use a while loop to read lines from /etc/passwd
 while IFS=: read -r username _ uid gid info home shell; do
-    # Extract the user's full name and password from the "info" field
-    full_name=$(echo "$info" | cut -d ',' -f 5)
-    password=$(echo "$info" | cut -d ',' -f 6)
-
-    # Display the formatted user information
-    echo "The user $username is part of the $gid gang, lives in $home and rides $shell. $gid's place is protected by the passcode x, more info about the user here: $username"
+	echo "The user $username is part of the $gid gang, lives in $home and rides $shell. $gid's place is protected by the passcode x, more info about the user here: $username"
 done < /etc/passwd
