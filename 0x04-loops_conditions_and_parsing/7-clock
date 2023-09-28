@@ -12,6 +12,6 @@ while [ $hours -le 12 ]; do
 		echo "$minutes"
 		((minutes++))
 	done
-	minutes=0
+	minutes=1
 	((hours++))
-done | head -n 71
+done | head -n 70
