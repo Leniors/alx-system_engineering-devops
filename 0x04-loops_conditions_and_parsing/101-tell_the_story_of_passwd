@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script reads and formats information from /etc/passwd.
+
+# Use a while loop to read lines from /etc/passwd
+while IFS=: read -r username _ uid gid info home shell; do
+    # Extract the user's full name and password from the "info" field
+    full_name=$(echo "$info" | cut -d ',' -f 5)
+    password=$(echo "$info" | cut -d ',' -f 6)
+
+    # Display the formatted user information
+    echo "The user $username is part of the group $gid gang,"
+    echo "lives in $home and rides $shell."
+    echo "User ID's place is protected by the passcode $password,"
+    echo "more info about the user here: $full_name"
+    echo
+done < /etc/passwd
