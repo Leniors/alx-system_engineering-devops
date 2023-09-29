@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Use pkill to find and send a SIGTERM signal to the process by name
+pkill -SIGTERM -f "7-highlander"
