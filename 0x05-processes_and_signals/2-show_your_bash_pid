@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#displaysbas processe
+ps aux | grep 'bash' | grep -v "$$"
