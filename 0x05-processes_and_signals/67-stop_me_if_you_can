@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Find the process by name and send a SIGTERM signal to stop it
+pkill -SIGTERM -f "7-highlander"
