@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Check if the script is running in a Docker container
+if grep -q docker /proc/1/cgroup; then
+    echo "Running inside Docker container."
+else
+    echo "This script should be run inside a Docker container."
+    exit 1
+fi
+
+# Define the desired DNS configurations
+localhost_ip="127.0.0.2"
+facebook_ip="8.8.8.8"
+
+# Update the /etc/hosts file
+echo -e "${localhost_ip}\tlocalhost" | tee -a /etc/hosts
+echo -e "${facebook_ip}\tfacebook.com" | tee -a /etc/hosts
+
+# Print the updated /etc/hosts file
+cat /etc/hosts
