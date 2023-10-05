@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Get the list of listening sockets and their details using netstat
+netstat -tuln | awk '
+    NR > 2 { 
+        # Extract and store the protocol, local address, and state
+        protocol = $1;
+        local_address = $4;
+        state = $6;
+        
+        # Split the local address into IP and port parts
+        split(local_address, address_parts, ":");
+        ip = address_parts[1];
+        port = address_parts[2];
+        
+        # Check if the port is in the list of well-known ports
+        if (port == 22) {
+            service = "SSH";
+        } else if (port == 80) {
+            service = "HTTP";
+        } else if (port == 443) {
+            service = "HTTPS";
+        } else {
+            service = "Unknown";
+        }
+        
+        # Use "lsof" to find the PID and program name associated with the socket
+        cmd = "lsof -i :" port " | awk 'NR>1 {print $2, $1}'";
+        cmd | getline pid_program;
+        close(cmd);
+        
+        # Print the results
+        printf("Protocol: %-5s IP: %-15s Port: %-5s Service: %-10s State: %-10s PID: %-5s Program: %s\n", 
+               protocol, ip, port, service, state, pid_program);
+    }
+'
