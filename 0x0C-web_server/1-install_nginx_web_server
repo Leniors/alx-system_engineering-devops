@@ -14,6 +14,3 @@ sudo sed -i 's/^\s*listen\s*\(.*\)/listen 80;/' /etc/nginx/sites-available/defau
 
 # Restart Nginx (without using systemctl)
 sudo service nginx restart
-
-# Display a message indicating the setup is complete
-echo "Nginx installed and configured. Visit http://your_server_ip/ to see 'Hello World!'"

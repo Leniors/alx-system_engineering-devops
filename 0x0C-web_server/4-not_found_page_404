@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Define the Nginx configuration file path
+nginx_conf="/etc/nginx/sites-available/default"
+
+# Create a backup of the original configuration file
+cp "$nginx_conf" "$nginx_conf.bak"
+
+# Add a custom error page for 404 errors to the Nginx configuration
+cat <<EOL >> "$nginx_conf"
+
+server {
+    # ... (existing configuration)
+
+    error_page 404 /404.html;
+
+    location = /404.html {
+        root /usr/share/nginx/html;
+        internal;
+        return 404 "<html><head><title>404 Not Found</title></head><body><h1>404 Not Found</h1><p>Ceci n'est pas une page</p></body></html>";
+    }
+
+    # ... (existing configuration)
+}
+EOL
+
+# Test Nginx configuration
+nginx -t
+
+# Reload Nginx to apply changes
+systemctl reload nginx
