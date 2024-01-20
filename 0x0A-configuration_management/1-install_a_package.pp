@@ -5,7 +5,7 @@ package { 'python3-pip':
 }
 
 exec { 'install_flask':
-  command => 'sudo /usr/bin/python3/pip3 install flask==2.1.0',
+  command => '/usr/bin/pip3 install flask==2.1.0',
   path    => ['/bin', '/usr/bin']
   unless  => '/usr/bin/pip3 show flask | grep -q "Version: 2.1.0"',
 }
