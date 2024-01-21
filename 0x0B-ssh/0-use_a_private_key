@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
+server_ip="34.202.234.242"
+user="ubuntu"
+
 #connecting to a server
-ssh -i ~/.ssh/school ubuntu@34.202.234.242
+ssh -i ~/.ssh/school $user@$server_ip
