@@ -10,7 +10,7 @@ sudo apt-get install -y nginx
 echo "<html><head><title>Hello World!</title></head><body><p>Hello World!</p></body></html>" | sudo tee /var/www/html/index.html
 
 # Ensure Nginx is listening on port 80
-sudo sed -i 's/^\s*listen\s*\(.*\)/listen 80;/' /etc/nginx/sites-available/default
+#sudo sed -i 's/^\s*listen\s*\(.*\)/listen 80;/' /etc/nginx/sites-available/default
 
 # Restart Nginx (without using systemctl)
 sudo service nginx restart
