@@ -10,8 +10,7 @@ nginx_conf="/etc/nginx/sites-available/default"
 #new_server_block_content="location /redirect_me {return 301 http://example.com/new_page;}"
 # Add the new content to the existing server block
 
-sudo sed -i "/# SSL configuration/a\\\tlocation /redirect_me {\n\t\treturn 301 http://example.com/new_page;\n\t}" "$nginx_conf"
-
+sudo sed -i "/# SSL configuration/a\\\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}" "$nginx_conf"
 
 sudo nginx -t
 
