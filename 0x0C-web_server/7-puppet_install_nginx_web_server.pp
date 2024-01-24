@@ -10,7 +10,7 @@ service { 'nginx':
 }
 
 exec { 'nginx_configure_redirect':
-  command     => '/bin/sed -i "/server_name_;/a\\\n\\tlocation /redirect_me {\n\t\treturn 301 http://www.youtube.com/@leeroy_nyanchwa;\n\t}" /etc/nginx/sites-available/default',
+  command     => '/bin/sed -i "/server_name _;/a\\\n\\tlocation /redirect_me {\n\t\treturn 301 http://www.youtube.com/@leeroy_nyanchwa;\n\t}" /etc/nginx/sites-available/default',
   path        => ['/bin', '/usr/bin'],
   refreshonly => true,
 }
