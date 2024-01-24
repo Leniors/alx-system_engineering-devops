@@ -9,6 +9,12 @@ service { 'nginx':
   enable  => true,
 }
 
+file { '/var/www/html/index.html':
+  ensure  => 'file',
+  mode    => '0644',
+  content => 'Hello World',
+}
+
 exec { 'nginx_configure_redirect':
   command     => '/bin/sed -i "/server_name _;/a\\\n\\tlocation /redirect_me {\n\t\treturn 301 http://www.youtube.com/@leeroy_nyanchwa;\n\t}" /etc/nginx/sites-available/default',
   path        => ['/bin', '/usr/bin'],
