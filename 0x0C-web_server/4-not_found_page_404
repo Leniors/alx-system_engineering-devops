@@ -9,4 +9,4 @@ sudo sed -i "/server_name _;/a\\\n\\terror_page 404 /custom_404.html;\n\tlocatio
 sudo nginx -t
 
 # Reload Nginx to apply changes
-sudo systemctl reload nginx
+sudo service nginx reload
