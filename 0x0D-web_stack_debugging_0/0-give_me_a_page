@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Docker
-sudo echo "Hello Holberton" > /var/www/html/index.html
+echo "Hello Holberton" > /var/www/html/index.html
 
 exit
