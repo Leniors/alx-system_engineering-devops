@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Docker
-docker run -p 8080:80 -d -it holbertonschool/265-0
+apt-get update
 
-container_id=$(docker ps -q)
+apt-get install -y apache2
 
-docker exec -it $container_id /bin/bash
+service apache2 start
 
 echo "Hello Holberton" > /var/www/html/index.html
 
