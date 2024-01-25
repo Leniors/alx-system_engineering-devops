@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 # Docker
+docker run -p 8080:80 -d -it holbertonschool/265-0
+
+container_id=$(docker ps -q)
+
+docker exec -it $container_id /bin/bash
+
 echo "Hello Holberton" > /var/www/html/index.html
 
 exit
