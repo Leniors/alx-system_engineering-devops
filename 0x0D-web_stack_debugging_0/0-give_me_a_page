@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 # Docker
-container_id=$(docker ps -q)
-
-docker exec -it $container_id /bin/bash
-
-echo "Hello Holberton" > /var/www/html/index.html
+sudo echo "Hello Holberton" > /var/www/html/index.html
 
 exit
