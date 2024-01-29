@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Define the Nginx configuration file path
+echo "$(hostname)"

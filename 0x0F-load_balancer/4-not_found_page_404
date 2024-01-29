@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Define the Nginx configuration file path
+nginx_conf="/etc/nginx/sites-available/default"
+
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
+
+sudo sed -i "/^[[:space:]]*server {/a\\\terror_page 404 /custom_404.html;\n\tlocation /custom_404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}" "$nginx_conf"
+
+sudo nginx -t
+
+# Reload Nginx to apply changes
+sudo service nginx reload
