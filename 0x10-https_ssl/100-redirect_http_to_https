@@ -41,9 +41,11 @@ frontend apps
 frontend apps_https
         bind *:443 ssl crt /etc/haproxy/certs/www.leeroymokua.tech.pem
         http-request add-header X-Forwarded-Proto http
+        http-request redirect scheme https unless { ssl_fc }
         default_backend my_servers
 
 backend my_servers
         balance roundrobin
+        redirect scheme https unless { ssl_fc }
         server 315813-web-01 34.202.234.242:80 check
         server 315813-web-02 100.26.56.132:80 check
