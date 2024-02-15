@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Check if an argument is provided
 if [ $# -ne 1 ]; then
-    echo "Usage: $0 <username>"
+    su -c 'whoami'
     exit 1
 fi
 
