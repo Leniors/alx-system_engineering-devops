@@ -8,4 +8,4 @@ fi
 username=$1
 
 # Run the `whoami` command as the specified user
-su -c 'whoami' $username
+su -c whoami $username
