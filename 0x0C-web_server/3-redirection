@@ -2,7 +2,7 @@
 # Define the Nginx configuration file path
 nginx_conf="/etc/nginx/sites-available/default"
 
-sudo sed -i "/server_name _;/a\\\n\\tlocation /redirect_me {\n\t\treturn 301 http://www.youtube.com/@leeroy_nyanchwa;\n\t}" "$nginx_conf"
+sudo sed -i "/^[[:space:]]*server {/a\\\n\\tlocation /redirect_me {\n\t\treturn 301 http://www.youtube.com/@leeroy_nyanchwa;\n\t}" "$nginx_conf"
 
 sudo nginx -t
 
