@@ -1,11 +1,3 @@
 #!/usr/bin/env bash
 # Check if an argument is provided
-if [ $# -ne 1 ]; then
-    exit 1
-fi
-
-# Retrieve the username from the command line argument
-username=$1
-
-# Run the `whoami` command as the specified user
-su -c whoami $username
+sudo -u "$1" whoami
