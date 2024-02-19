@@ -18,8 +18,13 @@ if __name__ == "__main__":
 
     json_file = f"{user['id']}.json"
 
-    dic = {str(user['id']): todos}
+    todos_list = []
+
+    for todo in todos:
+        todo_dic = {"task": todo['title'], "completed": todo['completed'], "username": user['username']}
+        todos_list.append(todo_dic)
+
+    dic = {str(user['id']): todos_list}
 
     with open(json_file, mode='w', newline='') as file:
         file.write(json.dumps(dic))
-        file.write('\n')
