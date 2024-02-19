@@ -20,7 +20,7 @@ if __name__ == "__main__":
     csv_file = f"{user['id']}.csv"
 
     with open(csv_file, mode='w', newline='') as file:
-        writer = csv.writer(file)
+        writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for todo in todos:
             row = [user['id'], user['username'], todo['completed'], todo['title']]
             writer.writerow(row)
