@@ -12,11 +12,9 @@ if __name__ == "__main__":
     user_url = f"https://jsonplaceholder.typicode.com/users/{sys.argv[1]}"
     user_json = requests.get(user_url)
     user = json.loads(user_json.text)
-
     todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={sys.argv[1]}"
     todos_json = requests.get(todo_url)
     todos = json.loads(todos_json.text)
-
     done_todos = 0
     for todo in todos:
         if todo.get("completed") == True:
