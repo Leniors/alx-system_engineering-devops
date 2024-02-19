@@ -21,7 +21,9 @@ if __name__ == "__main__":
     todos_list = []
 
     for todo in todos:
-        todo_dic = {"task": todo['title'], "completed": todo['completed'], "username": user['username']}
+        todo_dic = {"task": todo['title'],
+                    "completed": todo['completed'],
+                    "username": user['username']}
         todos_list.append(todo_dic)
 
     dic = {str(user['id']): todos_list}
