@@ -14,8 +14,8 @@ if __name__ == "__main__":
     all_dic = {}
 
     for user in users:
-
-        todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={user['id']}"
+        u_id = user['id']
+        todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={u_id}"
         todos = requests.get(todo_url).json()
 
         todos_list = []
