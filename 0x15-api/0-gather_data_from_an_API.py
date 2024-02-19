@@ -9,20 +9,21 @@ if __name__ == "__main__":
     import requests
     import sys
 
-    user_url = f"https://jsonplaceholder.typicode.com/users/{sys.argv[1]}"
+    u_id = sys.argv[1]
+    user_url = f"https://jsonplaceholder.typicode.com/users/{u_id}"
     user_json = requests.get(user_url)
     user = json.loads(user_json.text)
-    todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={sys.argv[1]}"
+    todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={u_id}"
     todos_json = requests.get(todo_url)
     todos = json.loads(todos_json.text)
-    done_todos = 0
+    done = 0
     for todo in todos:
-        if todo.get("completed") == True:
-            done_todos += 1
+        if todo.get("completed"):
+            done += 1
 
     print(
-        f"Employee {user['name']} is done with tasks({done_todos}/{len(todos)}):")
+        f"Employee {user['name']} is done with tasks({done}/{len(todos)}):")
 
     for todo in todos:
-        if todo.get("completed") == True:
+        if todo.get("completed"):
             print(f"\t{todo.get('title')}")
