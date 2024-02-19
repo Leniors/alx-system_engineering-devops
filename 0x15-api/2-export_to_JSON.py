@@ -5,7 +5,6 @@ request an api
 
 if __name__ == "__main__":
     import json
-    import random
     import requests
     import sys
 
