@@ -22,5 +22,9 @@ if __name__ == "__main__":
     with open(csv_file, mode='w', newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for todo in todos:
-            row = [user['id'], user['username'], todo['completed'], todo['title']]
+            user_id = user['id']
+            username = user['username']
+            todo_status = todo['completed']
+            todo_title = todo['title']
+            row = [user_id, username, todo_status, todo_title]
             writer.writerow(row)
