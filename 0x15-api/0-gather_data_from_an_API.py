@@ -11,11 +11,11 @@ if __name__ == "__main__":
 
     u_id = sys.argv[1]
     user_url = f"https://jsonplaceholder.typicode.com/users/{u_id}"
-    user_json = requests.get(user_url)
-    user = json.loads(user_json.text)
+    user = requests.get(user_url).json()
+
     todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={u_id}"
-    todos_json = requests.get(todo_url)
-    todos = json.loads(todos_json.text)
+    todos = requests.get(todo_url).json()
+
     done = 0
     for todo in todos:
         if todo.get("completed"):
